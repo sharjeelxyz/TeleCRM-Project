@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Database, Trello, Settings } from "lucide-react";
-import HomePage from "./HomePage";
+import CustomerLeads from "./CustomerLeads";
+import { Routes, Route, Link } from "react-router-dom";
+import MyData from "./MyData";
+import MyEmployees from "./MyEmployees";
 
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -24,14 +27,18 @@ const DashboardLayout = () => {
 
         <nav className="flex-1 px-2 py-6 overflow-y-auto">
           <div className="space-y-2">
-            <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
-              <Database className="w-4 h-4" />
-              {!collapsed && "My Data"}
-            </button>
-            <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
-              <Trello className="w-4 h-4" />
-              {!collapsed && "My Employees"}
-            </button>
+            <Link to="/my-data">
+              <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
+                <Database className="w-4 h-4" />
+                {!collapsed && "My Data"}
+              </button>
+            </Link>
+            <Link to="/my-employees">
+              <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
+                <Trello className="w-4 h-4" />
+                {!collapsed && "My Employees"}
+              </button>
+            </Link>
           </div>
         </nav>
 
@@ -62,7 +69,24 @@ const DashboardLayout = () => {
           collapsed ? "ml-20" : "ml-64"
         }`}
       >
-        <HomePage onToggleSidebar={handleToggleSidebar} />
+        <Routes>
+          <Route
+            path="/"
+            element={<MyData onToggleSidebar={handleToggleSidebar} />}
+          />
+          <Route
+            path="/my-data"
+            element={<MyData onToggleSidebar={handleToggleSidebar} />}
+          />
+          <Route
+            path="my-employees"
+            element={<MyEmployees onToggleSidebar={handleToggleSidebar} />}
+          />
+          <Route
+            path="/customer-leads"
+            element={<CustomerLeads onToggleSidebar={handleToggleSidebar} />}
+          />
+        </Routes>
       </main>
     </div>
   );

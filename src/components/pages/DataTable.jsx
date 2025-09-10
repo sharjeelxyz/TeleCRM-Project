@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { ChevronDown, EllipsisVertical, Trash2, SquarePen } from "lucide-react";
+import PaginationFooter from "../smallComps/PaginationFooter";
+import { Link } from "react-router-dom";
 import {
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  ChevronsLeft,
-  ChevronsRight,
-} from "lucide-react";
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 
 const DataTable = () => {
-  const [selectedRows, setSelectedRows] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const data = [
@@ -104,21 +107,6 @@ const DataTable = () => {
     },
   ];
 
-  // Logics for selecting rows
-  const toggleRowSelection = (id) => {
-    setSelectedRows((prev) =>
-      prev.includes(id) ? prev.filter((rowId) => rowId !== id) : [...prev, id]
-    );
-  };
-
-  const toggleAllRows = () => {
-    if (selectedRows.length === data.length) {
-      setSelectedRows([]);
-    } else {
-      setSelectedRows(data.map((row) => row.id));
-    }
-  };
-
   const StatusBadge = ({ status }) => {
     if (status === "Done") {
       return (
@@ -138,18 +126,13 @@ const DataTable = () => {
   };
 
   return (
-    <div className=" overflow-hidden">
+    <div className="overflow-hidden">
       <div className="overflow-x-auto mb-4 bg-white border border-gray-200 rounded-lg">
         <table className="w-full">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
               <th className="w-12 px-4 py-3 text-left">
-                <input
-                  type="checkbox"
-                  checked={selectedRows.length === data.length}
-                  onChange={toggleAllRows}
-                  className="rounded border-gray-300"
-                />
+                <input type="checkbox" className="rounded border-gray-300" />
               </th>
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Header
@@ -169,23 +152,19 @@ const DataTable = () => {
               <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                 Reviewer
               </th>
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
-            {data.map((row, index) => (
+            {data.map((row) => (
               <tr
                 key={row.id}
-                className={`border-b border-gray-100 hover:bg-gray-50 ${
-                  selectedRows.includes(row.id) ? "bg-blue-50" : ""
-                }`}
+                className="border-b border-gray-100 hover:bg-gray-50"
               >
                 <td className="px-4 py-4">
-                  <input
-                    type="checkbox"
-                    checked={selectedRows.includes(row.id)}
-                    onChange={() => toggleRowSelection(row.id)}
-                    className="rounded border-gray-300"
-                  />
+                  <input type="checkbox" className="rounded border-gray-300" />
                 </td>
                 <td className="px-4 py-4">
                   <span className="text-sm text-gray-900 font-medium">
@@ -220,47 +199,40 @@ const DataTable = () => {
                     )}
                   </div>
                 </td>
+                <td className="px-4 py-4">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <EllipsisVertical className="h-4 cursor-pointer text-gray-600" />
+                    </DropdownMenuTrigger>
+
+                    <DropdownMenuContent className="w-44 absolute right-3 top-0 bg-gray-50 border border-gray-100 p-2 ">
+                      <Link to="/customer-leads">
+                        <div className=" border rounded-xl border-gray-100 hover:bg-white mb-1 font-medium flex items-center">
+                          <SquarePen className="h-4 ml-2" />
+                          <DropdownMenuItem>
+                            <span className="text-[14px]">View Details</span>
+                          </DropdownMenuItem>
+                        </div>
+                      </Link>
+                      <div className="border rounded-xl border-gray-100 hover:bg-white font-medium flex items-center text-red-600">
+                        <Trash2 className="ml-2 h-4" />
+                        <DropdownMenuItem>
+                          <span className="text-[14px]">Delete Files</span>
+                        </DropdownMenuItem>
+                      </div>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <div className="flex items-center justify-between mb-4 px-4 py-3 bg-white border border-gray-200 rounded-xl">
-        <div className="flex items-center gap-4 text-sm text-gray-600">
-          <span>0 of 68 row(s) selected</span>
-          <div className="flex items-center gap-2">
-            <span>Rows per page</span>
-            <select
-              value={rowsPerPage}
-              onChange={(e) => setRowsPerPage(Number(e.target.value))}
-              className="border border-gray-300 rounded px-2 py-1 text-sm"
-            >
-              <option value={10}>10</option>
-              <option value={25}>25</option>
-              <option value={50}>50</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-600">Page 1 of 7</span>
-          <div className="flex items-center gap-1 ml-4">
-            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
-              <ChevronsLeft className="w-4 h-4 text-gray-400" />
-            </button>
-            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
-              <ChevronLeft className="w-4 h-4 text-gray-400" />
-            </button>
-            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
-              <ChevronRight className="w-4 h-4 text-gray-600" />
-            </button>
-            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
-              <ChevronsRight className="w-4 h-4 text-gray-600" />
-            </button>
-          </div>
-        </div>
-      </div>
+      <PaginationFooter
+        rowsPerPage={rowsPerPage}
+        setRowsPerPage={setRowsPerPage}
+      />
     </div>
   );
 };

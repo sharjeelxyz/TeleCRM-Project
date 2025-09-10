@@ -1,29 +1,13 @@
 import React from "react";
-import {
-  PanelLeft,
-  CirclePlus,
-  Plus,
-  ChevronDown,
-  Columns2,
-} from "lucide-react";
+import { Plus, ChevronDown, Columns2 } from "lucide-react";
 import ExampleCard from "../smallComps/ExampleCard";
 import DataTable from "./DataTable";
+import TopNavBar from "../smallComps/TopNavBar";
 
-const HomePage = ({ onToggleSidebar }) => {
+const MyData = ({ onToggleSidebar }) => {
   return (
-    <div className="px-6 pt-2 pd-6">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-2" onClick={onToggleSidebar}>
-          <PanelLeft className="w-6 h-6 text-gray-700" />
-          <span className="text-sm font-medium text-gray-800">My Data</span>
-        </div>
-        <div className="flex items-center gap-1 bg-white px-3 py-2 rounded-md cursor-pointer border border-gray-200 hover:bg-gray-50">
-          <CirclePlus className="w-4 h-4 text-gray-700" />
-          <span className="text-sm font-medium text-gray-800">
-            Quick Access
-          </span>
-        </div>
-      </div>
+    <div className="px-6 pt-1 pd-6">
+      <TopNavBar onToggleSidebar={onToggleSidebar} />
       <ExampleCard />
       <div className="p-4  rounded-lg ">
         <div className="flex items-center justify-between">
@@ -65,4 +49,4 @@ const HomePage = ({ onToggleSidebar }) => {
   );
 };
 
-export default HomePage;
+export default MyData;
