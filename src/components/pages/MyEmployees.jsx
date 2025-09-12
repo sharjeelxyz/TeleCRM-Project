@@ -1,6 +1,21 @@
 import React from "react";
-import { PanelLeft, CirclePlus, ChevronRight, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  PanelLeft,
+  CirclePlus,
+  EllipsisVertical,
+  SquarePen,
+  Trash2,
+} from "lucide-react";
 import PaginationFooter from "../smallComps/PaginationFooter";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 
 const MyEmployees = ({ onToggleSidebar }) => {
   const customerDetails = [
@@ -132,31 +147,32 @@ const MyEmployees = ({ onToggleSidebar }) => {
           </button>
         </div>
 
-        <div className="p-2 border border-gray-200 mt-4 rounded-xl">
+        <div className="border border-gray-200 mt-4 rounded-xl">
           <table className="w-full">
-            <thead>
-              <tr className="bg-gray-100 border-b border-gray-200">
+            <thead className="bg-gray-100 border-b border-gray-200">
+              <tr>
                 <th className="w-12 px-4 py-3 text-left">
                   <input type="checkbox" className="rounded border-gray-300" />
                 </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 pl-2 py-3 text-left text-sm font-medium text-gray-700">
                   Employee ID
                 </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 pr-2 py-3 text-left text-sm font-medium text-gray-700">
                   Name & Email
                 </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 pr-3 text-left text-sm font-medium text-gray-700">
                   Date Created
                 </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 pr-2 py-3 text-left text-sm font-medium text-gray-700">
                   Status
                 </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 pr-2 py-3 text-left text-sm font-medium text-gray-700">
                   Role
                 </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                <th className=" py-3 text-left text-sm font-medium text-gray-700">
                   Password
                 </th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -171,11 +187,11 @@ const MyEmployees = ({ onToggleSidebar }) => {
                       className="rounded border-gray-300"
                     />
                   </td>
-                  <td className="px-4 py-4 text-sm font-medium text-gray-900">
+                  <td className="px-4 pl-2 py-4 text-sm font-medium text-gray-900">
                     {row.id}
                   </td>
 
-                  <td className="px-4 py-4 text-sm  text-gray-900 flex-col flex">
+                  <td className="px-4 pl-2 py-4 text-sm  text-gray-900 flex-col flex">
                     <span className="font-medium"> {row.name}</span>
                     <span className="text-gray-500"> {row.email}</span>
                   </td>
@@ -185,7 +201,7 @@ const MyEmployees = ({ onToggleSidebar }) => {
                       {row.dateCreated}
                     </span>
                   </td>
-                  <td className="px-4 py-4">
+                  <td className="px-4 pl-2 py-4">
                     <span
                       className={`px-3 py-1 text-xs font-medium rounded-xl ${
                         row.status === "Active"
@@ -196,7 +212,7 @@ const MyEmployees = ({ onToggleSidebar }) => {
                       {row.status}
                     </span>
                   </td>
-                  <td className="px-4 py-4 ">
+                  <td className="px-4 pl-2 py-4 ">
                     <span
                       className={`px-2 py-1 text-xs font-medium rounded-xl ${
                         row.role === "Telecaller"
@@ -207,8 +223,32 @@ const MyEmployees = ({ onToggleSidebar }) => {
                       {row.role}
                     </span>
                   </td>
-                  <td className="px-4 py-4 text-sm font-medium text-gray-700">
+                  <td className="px-4 pl-2 py-4 text-sm font-medium text-gray-700">
                     temp123
+                  </td>
+                  <td>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <EllipsisVertical className="h-4 cursor-pointer text-gray-600" />
+                      </DropdownMenuTrigger>
+
+                      <DropdownMenuContent className="w-44 absolute right-3 top-0 bg-gray-50 border border-gray-100 p-2 ">
+                        <Link to="/my-employees/employee-detail">
+                          <div className=" border rounded-xl border-gray-100 hover:bg-white mb-1 font-medium flex items-center">
+                            <SquarePen className="h-4 ml-2" />
+                            <DropdownMenuItem>
+                              <span className="text-[14px]">View Details</span>
+                            </DropdownMenuItem>
+                          </div>
+                        </Link>
+                        <div className="border rounded-xl border-gray-100 hover:bg-white font-medium flex items-center text-red-600">
+                          <Trash2 className="ml-2 h-4" />
+                          <DropdownMenuItem>
+                            <span className="text-[14px]">Delete Files</span>
+                          </DropdownMenuItem>
+                        </div>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </td>
                 </tr>
               ))}

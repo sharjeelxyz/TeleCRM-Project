@@ -4,6 +4,7 @@ import CustomerLeads from "./CustomerLeads";
 import { Routes, Route, Link } from "react-router-dom";
 import MyData from "./MyData";
 import MyEmployees from "./MyEmployees";
+import EmployeeDetail from "./EmployeeDetail";
 
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -79,8 +80,12 @@ const DashboardLayout = () => {
             element={<MyData onToggleSidebar={handleToggleSidebar} />}
           />
           <Route
-            path="my-employees"
+            path="/my-employees"
             element={<MyEmployees onToggleSidebar={handleToggleSidebar} />}
+          />
+          <Route
+            path="/employee-details"
+            element={<EmployeeDetail onToggleSidebar={handleToggleSidebar} />}
           />
           <Route
             path="/customer-leads"

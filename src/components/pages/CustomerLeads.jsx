@@ -90,7 +90,6 @@ const CustomerLeads = ({ onToggleSidebar }) => {
   return (
     <div>
       <div className="px-6 pt-1 pd-6">
-        {/* Navbar */}
         <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3 border-b border-gray-200 ">
           <div className="flex items-center gap-2">
             <PanelLeft
