@@ -2,8 +2,10 @@ import React from "react";
 import { PanelLeft, CirclePlus, ChevronRight, Plus } from "lucide-react";
 import PaginationFooter from "../smallComps/PaginationFooter";
 import { Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
-const CustomerLeads = ({ onToggleSidebar }) => {
+const CustomerLeads = () => {
+  const { onToggleSidebar } = useOutletContext();
   const customerDetails = [
     {
       name: "Customer 1",

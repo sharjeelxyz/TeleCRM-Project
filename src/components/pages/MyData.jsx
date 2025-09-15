@@ -3,8 +3,11 @@ import { Plus, ChevronDown, Columns2 } from "lucide-react";
 import ExampleCard from "../smallComps/ExampleCard";
 import DataTable from "./DataTable";
 import TopNavBar from "../smallComps/TopNavBar";
+import { useOutletContext } from "react-router-dom";
 
-const MyData = ({ onToggleSidebar }) => {
+const MyData = () => {
+  const { onToggleSidebar } = useOutletContext();
+
   return (
     <div className="px-6 pt-1 pd-6">
       <TopNavBar onToggleSidebar={onToggleSidebar} />

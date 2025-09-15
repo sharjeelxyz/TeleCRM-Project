@@ -1,6 +1,9 @@
 import React from "react";
+import { useOutletContext } from "react-router-dom";
 
-const EmployeeDetail = ({ onToggleSidebar }) => {
+const EmployeeDetail = () => {
+  const { onToggleSidebar } = useOutletContext();
+
   return (
     <div>
       <h1>

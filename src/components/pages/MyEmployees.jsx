@@ -16,8 +16,10 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+import { useOutletContext } from "react-router-dom";
 
-const MyEmployees = ({ onToggleSidebar }) => {
+const MyEmployees = () => {
+  const { onToggleSidebar } = useOutletContext();
   const customerDetails = [
     {
       id: "EMP001",
