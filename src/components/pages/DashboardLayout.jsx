@@ -142,6 +142,20 @@ const DashboardLayout = () => {
             <Settings className="w-5 h-5 text-gray-400" />
             {!collapsed && "Settings"}
           </button>
+
+          <div className="flex items-center gap-3 p-2 rounded-lg">
+            <div className="w-8 h-8 rounded-lg bg-black flex-shrink-0"></div>
+            {!collapsed && (
+              <div className="flex flex-col min-w-0">
+                <span className="text-sm font-semibold text-gray-900 truncate">
+                  LoadGO
+                </span>
+                <span className="text-xs text-gray-500 truncate">
+                  m@example.com
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </aside>
 
