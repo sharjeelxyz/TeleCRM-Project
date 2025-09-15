@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Database, Trello, Settings } from "lucide-react";
-import CustomerLeads from "./CustomerLeads";
-import { Routes, Route, Link } from "react-router-dom";
-import MyData from "./MyData";
-import MyEmployees from "./MyEmployees";
-import EmployeeDetail from "./EmployeeDetail";
+import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -28,13 +24,13 @@ const DashboardLayout = () => {
 
         <nav className="flex-1 px-2 py-6 overflow-y-auto">
           <div className="space-y-2">
-            <Link to="/my-data">
+            <Link to="my-data">
               <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
                 <Database className="w-4 h-4" />
                 {!collapsed && "My Data"}
               </button>
             </Link>
-            <Link to="/my-employees">
+            <Link to="my-employees">
               <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
                 <Trello className="w-4 h-4" />
                 {!collapsed && "My Employees"}
@@ -48,20 +44,6 @@ const DashboardLayout = () => {
             <Settings className="w-5 h-5 text-gray-400" />
             {!collapsed && "Settings"}
           </button>
-
-          <div className="flex items-center gap-3 p-2 rounded-lg">
-            <div className="w-8 h-8 rounded-lg bg-black flex-shrink-0"></div>
-            {!collapsed && (
-              <div className="flex flex-col min-w-0">
-                <span className="text-sm font-semibold text-gray-900 truncate">
-                  LoadGO
-                </span>
-                <span className="text-xs text-gray-500 truncate">
-                  m@example.com
-                </span>
-              </div>
-            )}
-          </div>
         </div>
       </aside>
 
@@ -70,28 +52,7 @@ const DashboardLayout = () => {
           collapsed ? "ml-20" : "ml-64"
         }`}
       >
-        <Routes>
-          <Route
-            path="/"
-            element={<MyData onToggleSidebar={handleToggleSidebar} />}
-          />
-          <Route
-            path="/my-data"
-            element={<MyData onToggleSidebar={handleToggleSidebar} />}
-          />
-          <Route
-            path="/my-employees"
-            element={<MyEmployees onToggleSidebar={handleToggleSidebar} />}
-          />
-          <Route
-            path="/employee-details"
-            element={<EmployeeDetail onToggleSidebar={handleToggleSidebar} />}
-          />
-          <Route
-            path="/customer-leads"
-            element={<CustomerLeads onToggleSidebar={handleToggleSidebar} />}
-          />
-        </Routes>
+        <Outlet />
       </main>
     </div>
   );
