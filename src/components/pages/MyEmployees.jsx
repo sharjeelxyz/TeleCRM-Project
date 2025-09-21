@@ -104,17 +104,17 @@ const MyEmployees = () => {
   ];
 
   return (
-    <div>
-      <div className="px-6 pt-1 pd-6">
-        <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3 border-b border-gray-200 ">
-          <div className="flex items-center gap-2">
+    <div className="overflow-hidden">
+      <div className="pr-6 pl-3 pt-1">
+        <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3  ">
+          <div className="flex items-center gap-4">
             <PanelLeft
-              className="w-6 h-6 text-gray-700 active:text-gray-500"
+              className="w-[18px] h-[18px] text-gray-700 active:text-gray-500 rounded-2xl"
               onClick={onToggleSidebar}
             />
-            <span className="text-sm font-medium text-gray-800">
-              My Employees
-            </span>
+            <div className=" w-[80px] font-medium text-gray-800 flex items-center ">
+              <span className="text-xs">My Employees</span>
+            </div>
           </div>
         </div>
 
@@ -126,7 +126,7 @@ const MyEmployees = () => {
         </div>
 
         <div className="flex items-center gap-3 mt-4 justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center flex-wrap  gap-4">
             <div className="border border-gray-200 rounded px-4 py-1 flex items-center bg-white w-50">
               <input
                 type="text"
@@ -143,13 +143,14 @@ const MyEmployees = () => {
               <span className="text-sm font-medium">City</span>
             </button>
           </div>
-          <button className="flex items-center gap-2 border border-gray-200 rounded-lg px-4 py-2 bg-blue-500 text-white font-medium text-[14px]">
-            <CirclePlus className="text-white h-4 w-4" />
-            Add New Customer
+
+          <button className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-blue-500 text-white font-medium text-[14px]">
+            <CirclePlus className="h-5 w-5" />
+            <span className="hidden sm:inline">Add New Customer</span>
           </button>
         </div>
 
-        <div className="border border-gray-200 mt-4 rounded-xl">
+        <div className="overflow-x-auto border border-gray-200 mt-3 rounded-xl">
           <table className="w-full">
             <thead className="bg-gray-100 border-b border-gray-200">
               <tr>
@@ -257,7 +258,7 @@ const MyEmployees = () => {
             </tbody>
           </table>
         </div>
-        <div className="mt-4 ">
+        <div>
           <PaginationFooter />
         </div>
       </div>

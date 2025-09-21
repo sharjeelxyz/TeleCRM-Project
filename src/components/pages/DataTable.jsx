@@ -127,7 +127,7 @@ const DataTable = () => {
 
   return (
     <div className="overflow-hidden">
-      <div className="overflow-x-auto mb-4 bg-white border border-gray-200 rounded-lg">
+      <div className="overflow-x-auto bg-white border border-gray-200 rounded-lg">
         <table className="w-full">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">

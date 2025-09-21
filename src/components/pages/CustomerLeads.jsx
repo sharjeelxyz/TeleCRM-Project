@@ -91,24 +91,24 @@ const CustomerLeads = () => {
 
   return (
     <div>
-      <div className="px-6 pt-1 pd-6">
-        <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3 border-b border-gray-200 ">
-          <div className="flex items-center gap-2">
+      <div className="pr-6 pl-3 pt-1">
+        <div className="flex items-center justify-between  sticky top-0 bg-gray-50 py-3  ">
+          <div className="flex items-center gap-4">
             <PanelLeft
-              className="w-6 h-6 text-gray-700 active:text-gray-500"
+              className="w-[18px] h-[18px] text-gray-700 active:text-gray-500 rounded-2xl"
               onClick={onToggleSidebar}
             />
             <Link to="/my-data">
-              <span className="text-sm font-medium text-gray-800 cursor-pointer">
-                My Data
-              </span>
+              <div className=" w-[55px] font-medium text-gray-800 flex items-center ">
+                <span className="text-xs">My Data</span>
+              </div>
             </Link>
             <span>
-              <ChevronRight className="w-5 h-5 text-gray-800" />
+              <ChevronRight className="w-4 h-4 text-gray-800" />
             </span>
-            <span className="text-sm font-medium text-gray-800">
-              Customer Leads
-            </span>
+            <div className=" w-[91px] font-medium flex items-center ">
+              <span className="text-xs">Customer Leads</span>
+            </div>
           </div>
         </div>
 
