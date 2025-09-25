@@ -131,28 +131,31 @@ const DataTable = () => {
         <table className="w-full">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
-              <th className="w-12 px-4 py-3 text-left">
-                <input type="checkbox" className="rounded border-gray-300" />
+              <th className="w-12 px-4 py-3 text-left h-[16px]">
+                <input
+                  type="checkbox"
+                  className="rounded border-gray-300 w-[15px] h-[16px]"
+                />
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700 ">
                 Header
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
                 Created Date
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
                 Status
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
                 Records
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
                 Limit
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
                 Reviewer
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 text-[16px]">
                 Action
               </th>
             </tr>
@@ -164,15 +167,18 @@ const DataTable = () => {
                 className="border-b border-gray-100 hover:bg-gray-50"
               >
                 <td className="px-4 py-4">
-                  <input type="checkbox" className="rounded border-gray-300" />
+                  <input
+                    type="checkbox"
+                    className="w-[15px] h-[16px] rounded border-gray-300"
+                  />
                 </td>
                 <td className="px-4 py-4">
-                  <span className="text-sm text-gray-900 font-medium">
+                  <span className="text-[16px] text-gray-900 font-medium ">
                     {row.header}
                   </span>
                 </td>
                 <td className="px-4 py-4">
-                  <span className="text-sm text-gray-600">
+                  <span className="text-[16px] text-gray-600">
                     {row.createdDate}
                   </span>
                 </td>
@@ -180,18 +186,18 @@ const DataTable = () => {
                   <StatusBadge status={row.status} />
                 </td>
                 <td className="px-4 py-4">
-                  <span className="text-sm text-gray-900 font-medium">
+                  <span className="text-[16px] text-gray-900 font-medium">
                     {row.records}
                   </span>
                 </td>
                 <td className="px-4 py-4">
-                  <span className="text-sm text-gray-900 font-medium">
+                  <span className="text-[16px] text-gray-900 font-medium">
                     {row.limit}
                   </span>
                 </td>
                 <td className="px-4 py-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-700">
+                    <span className="text-[17px] text-gray-700">
                       {row.reviewer}
                     </span>
                     {row.reviewer === "Assign review..." && (
@@ -202,7 +208,7 @@ const DataTable = () => {
                 <td className="px-4 py-4">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <EllipsisVertical className="h-4 cursor-pointer text-gray-600" />
+                      <EllipsisVertical className="h-4 cursor-pointer text-gray-300" />
                     </DropdownMenuTrigger>
 
                     <DropdownMenuContent className="w-44 absolute right-3 top-0 bg-gray-50 border border-gray-100 p-2 ">

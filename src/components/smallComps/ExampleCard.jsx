@@ -38,14 +38,14 @@ export default function ExampleCard() {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full mb-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full mb-4 ">
       {cardData.map((card, index) => (
         <Card
           key={index}
-          className="flex flex-col justify-center px-4 sm:px-6 py-4 bg-white border border-gray-200"
+          className="flex flex-col justify-center px-4 sm:px-6 py-4 bg-white border border-gray-200 xl:h-[177px] lg:h-[190px] "
         >
-          <CardHeader className="p-0 mb-2 grid grid-cols-2 items-start">
-            <CardTitle className="text-sm sm:text-base text-gray-800">
+          <CardHeader className="p-0 mb-2 grid grid-cols-2 items-start mt-2">
+            <CardTitle className="text-[15px] text-gray-800">
               {card.title}
             </CardTitle>
 
@@ -58,13 +58,15 @@ export default function ExampleCard() {
               <span className="font-semibold text-xs">{card.percent}</span>
             </div>
 
-            <div className="text-2xl  font-semibold">{card.value}</div>
+            <div className="text-2xl text-[30px] w-[41px] font-bold">
+              {card.value}
+            </div>
           </CardHeader>
           <CardContent className="p-0">
-            <p className="text-xs sm:text-sm font-semibold mt-1">
+            <p className="text-[16px] sm:text-sm font-semibold ">
               {card.highlight}
             </p>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">
+            <p className="text-[16px] sm:text-sm text-gray-500 mt-1 mb-1">
               {card.description}
             </p>
           </CardContent>
