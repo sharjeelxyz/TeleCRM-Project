@@ -2,12 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   PanelLeft,
+  MoveRight,
   CirclePlus,
   EllipsisVertical,
   SquarePen,
   Trash2,
 } from "lucide-react";
-import PaginationFooter from "../smallComps/PaginationFooter";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from "lucide-react";
+// import PaginationFooter from "../smallComps/PaginationFooter";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -67,7 +74,7 @@ const MyEmployees = () => {
       email: "rajesh.kumar@company.com",
       dateCreated: "Jan 15, 2024",
       status: "Inactive",
-      role: "Team Lead",
+      role: "Telecaller",
     },
     {
       id: "EMP007",
@@ -109,11 +116,11 @@ const MyEmployees = () => {
         <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3  ">
           <div className="flex items-center gap-4">
             <PanelLeft
-              className="w-[18px] h-[18px] text-gray-700 active:text-gray-500 rounded-2xl"
+              className="w-[24px] h-[24px] text-gray-700 active:text-gray-500 rounded-2xl"
               onClick={onToggleSidebar}
             />
-            <div className=" w-[80px] font-medium text-gray-800 flex items-center ">
-              <span className="text-xs">My Employees</span>
+            <div className=" w-[96px] h-[18px] font-medium text-gray-800 flex items-center ">
+              <span className="text-[14px]">My Employees</span>
             </div>
           </div>
         </div>
@@ -144,7 +151,7 @@ const MyEmployees = () => {
             </button>
           </div>
 
-          <button className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-blue-500 text-white font-medium text-[14px]">
+          <button className="flex items-center gap-2 h-[40px] w-[185px] border border-gray-200 rounded-lg px-3 py-2 bg-blue-500 text-white font-medium text-[13px]">
             <CirclePlus className="h-5 w-5" />
             <span className="hidden sm:inline">Add New Customer</span>
           </button>
@@ -152,27 +159,30 @@ const MyEmployees = () => {
 
         <div className="overflow-x-auto border border-gray-200 mt-3 rounded-xl">
           <table className="w-full">
-            <thead className="bg-gray-100 border-b border-gray-200">
-              <tr>
-                <th className="w-12 px-4 py-3 text-left">
-                  <input type="checkbox" className="rounded border-gray-300" />
+            <thead>
+              <tr className="bg-gray-50 border-b border-gray-200">
+                <th className="w-12 px-4 py-3 text-left h-[16px]">
+                  <input
+                    type="checkbox"
+                    className="rounded border-gray-300 w-[17px] h-[16px]"
+                  />
                 </th>
-                <th className="px-4 pl-2 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700 pt-2">
                   Employee ID
                 </th>
-                <th className="px-4 pr-2 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700 pt-2 ">
                   Name & Email
                 </th>
-                <th className="px-4 pr-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700">
                   Date Created
                 </th>
-                <th className="px-4 pr-2 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700">
                   Status
                 </th>
-                <th className="px-4 pr-2 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700">
                   Role
                 </th>
-                <th className=" py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700">
                   Password
                 </th>
                 <th></th>
@@ -187,55 +197,70 @@ const MyEmployees = () => {
                   <td className="px-4 py-4">
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300"
+                      className="w-[17px] h-[16px] rounded border-gray-300"
                     />
                   </td>
-                  <td className="px-4 pl-2 py-4 text-sm font-medium text-gray-900">
-                    {row.id}
+
+                  <td className="px-4 py-4 ">
+                    <span className="text-[13px] flex pb-[7px]  text-gray-900 font-medium">
+                      {row.id}
+                    </span>
                   </td>
 
-                  <td className="px-4 pl-2 py-4 text-sm  text-gray-900 flex-col flex">
-                    <span className="font-medium"> {row.name}</span>
-                    <span className="text-gray-500"> {row.email}</span>
+                  <td className="px-4 py-4 flex flex-col">
+                    <span className="text-[13px] text-gray-900 font-medium">
+                      {row.name}
+                    </span>
+                    <span className="text-[13px] text-gray-500">
+                      {row.email}
+                    </span>
                   </td>
 
-                  <td className="px-4 py-4 text-sm text-gray-700 ">
-                    <span className="bg-pink-200 px-3 rounded-xl py-1 text-xs font-medium">
+                  <td className="px-4 py-4">
+                    <span className="text-[10px] w-[74px] h-[16px] bg-green-100 text-gray-800 px-[6px] rounded-md py-[4px] font-medium">
                       {row.dateCreated}
                     </span>
                   </td>
-                  <td className="px-4 pl-2 py-4">
-                    <span
-                      className={`px-3 py-1 text-xs font-medium rounded-xl ${
-                        row.status === "Active"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-700"
-                      }`}
+
+                  <td className="px-4 py-4">
+                    <div
+                      className={`flex items-center rounded gap-2 h-[16px] w-[68px] px-2 
+              ${row.status === "Active" ? "bg-[#A7F8C8]" : "bg-[#F09696]"}`}
                     >
-                      {row.status}
-                    </span>
+                      <span className="text-[11px] text-gray-700 font-medium flex px-2">
+                        {row.status}
+                      </span>
+                    </div>
                   </td>
-                  <td className="px-4 pl-2 py-4 ">
+
+                  <td className="px-4 py-4">
                     <span
-                      className={`px-2 py-1 text-xs font-medium rounded-xl ${
+                      className={`text-[12px] font-medium text-gray-700 px-2 py-[2px] rounded-md border border-gray-200
+                      ${
                         row.role === "Telecaller"
-                          ? "bg-blue-200 text-gray-700"
-                          : "bg-yellow-100 text-gray-700 border border-gray-100"
+                          ? "bg-[#A7D9F8]"
+                          : row.role === "Senior Telecaller"
+                          ? "bg-[#F8E7A7]"
+                          : "bg-gray-100"
                       }`}
                     >
                       {row.role}
                     </span>
                   </td>
-                  <td className="px-4 pl-2 py-4 text-sm font-medium text-gray-700">
-                    temp123
+
+                  <td className="px-4 py-4">
+                    <span className="text-[13px] font-medium text-gray-700">
+                      temp123
+                    </span>
                   </td>
-                  <td>
+
+                  <td className="px-4 py-4">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <EllipsisVertical className="h-4 cursor-pointer text-gray-600" />
+                        <EllipsisVertical className="h-4 cursor-pointer text-gray-300" />
                       </DropdownMenuTrigger>
 
-                      <DropdownMenuContent className="w-44 absolute right-3 top-0 bg-gray-50 border border-gray-100 p-2 ">
+                      <DropdownMenuContent className="w-44 absolute right-3 top-0 bg-gray-50 border border-gray-100 p-2">
                         <Link to="/my-employees/employee-detail">
                           <div className=" border rounded-xl border-gray-100 hover:bg-white mb-1 font-medium flex items-center">
                             <SquarePen className="h-4 ml-2" />
@@ -258,8 +283,42 @@ const MyEmployees = () => {
             </tbody>
           </table>
         </div>
-        <div>
-          <PaginationFooter />
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 px-4 py-2">
+          <div className=" h-[59px] w-[153px] flex items-center gap-2 text-gray-600 text-sm">
+            <span>0 of 68 row(s) selected</span>
+          </div>
+
+          <div className="flex items-center gap-2 text-sm text-gray-600 font-medium">
+            <span>Rows per page</span>
+            <select
+              value={10}
+              className="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <option value={10}>10</option>
+              <option value={25}>25</option>
+              <option value={50}>50</option>
+            </select>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-600 font-medium">
+              Page 1 of 7
+            </span>
+            <div className="flex items-center gap-1 ml-2 sm:ml-4 ">
+              <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
+                <ChevronsLeft className="w-4 h-4 text-gray-400" />
+              </button>
+              <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
+                <ChevronLeft className="w-4 h-4 text-gray-400" />
+              </button>
+              <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
+                <ChevronRight className="w-4 h-4 text-gray-600" />
+              </button>
+              <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
+                <ChevronsRight className="w-4 h-4 text-gray-600" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

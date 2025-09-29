@@ -128,6 +128,7 @@ const CustomerLeads = () => {
           </span>
         </div>
 
+        {/* this fixed height is the problem ..remove it and remove those mt-90 nd all then it will look good */}
         <div className="h-[175px]">
           <div className=" items-center mt-4  sm:gap-3 sm:justify-between sm:flex">
             <div className="flex items-center gap-3 grid-cols-1">

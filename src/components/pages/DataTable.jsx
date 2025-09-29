@@ -110,16 +110,20 @@ const DataTable = () => {
   const StatusBadge = ({ status }) => {
     if (status === "Done") {
       return (
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-          <span className="text-sm text-gray-700">Done</span>
+        <div className="flex items-center rounded gap-2 bg-green-100 w-[57px] h-[22px] px-2">
+          <div className="w-[5px] h-[6px] bg-green-500 rounded-full"></div>
+          <span className="w-[5px] h-[16px] text-[11px] text-gray-700 font-medium">
+            Done
+          </span>
         </div>
       );
     } else {
       return (
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-          <span className="text-sm text-gray-700">In Process</span>
+        <div className="flex items-center rounded gap-2 bg-green-100 h-[22px] w-[86px] px-2">
+          <div className="w-[5px] h-[6px] bg-orange-400 rounded-full"></div>
+          <span className="w-[56px] h-[16px] text-[11px] text-gray-700 font-medium">
+            In Process
+          </span>
         </div>
       );
     }
@@ -137,27 +141,25 @@ const DataTable = () => {
                   className="rounded border-gray-300 w-[15px] h-[16px]"
                 />
               </th>
-              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700 ">
+              <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700 pb-4 ">
                 Header
               </th>
-              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700 pb-4">
                 Created Date
               </th>
-              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700 pb-4">
                 Status
               </th>
-              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700 pb-4">
                 Records
               </th>
-              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700 pb-4">
                 Limit
               </th>
-              <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+              <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700 pb-4">
                 Reviewer
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 text-[16px]">
-                Action
-              </th>
+              <th className="px-4 py-3 text-left text-[13px] h-[16px] font-medium text-gray-700"></th>
             </tr>
           </thead>
           <tbody>
@@ -172,32 +174,34 @@ const DataTable = () => {
                     className="w-[15px] h-[16px] rounded border-gray-300"
                   />
                 </td>
-                <td className="px-4 py-4">
-                  <span className="text-[16px] text-gray-900 font-medium ">
+                <td className="px-4 py-4 flex">
+                  <span className="text-[13px] h-[16px] text-gray-900 font-medium ">
                     {row.header}
                   </span>
                 </td>
                 <td className="px-4 py-4">
-                  <span className="text-[16px] text-gray-600">
+                  <span className="text-[10px] w-[76px] h-[22px] bg-green-100 text-gray-800 px-[6px] rounded-md py-[4px] font-medium">
                     {row.createdDate}
                   </span>
                 </td>
                 <td className="px-4 py-4">
-                  <StatusBadge status={row.status} />
+                  <span className="">
+                    <StatusBadge status={row.status} />
+                  </span>
                 </td>
                 <td className="px-4 py-4">
-                  <span className="text-[16px] text-gray-900 font-medium">
+                  <span className="text-[14px] text-gray-900 font-medium">
                     {row.records}
                   </span>
                 </td>
                 <td className="px-4 py-4">
-                  <span className="text-[16px] text-gray-900 font-medium">
+                  <span className="text-[14px] text-gray-900 font-medium">
                     {row.limit}
                   </span>
                 </td>
                 <td className="px-4 py-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-[17px] text-gray-700">
+                    <span className="text-[13px] text-gray-800 font-medium">
                       {row.reviewer}
                     </span>
                     {row.reviewer === "Assign review..." && (
