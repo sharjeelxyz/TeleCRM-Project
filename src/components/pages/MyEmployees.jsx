@@ -111,9 +111,9 @@ const MyEmployees = () => {
   ];
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-white">
       <div className="pr-6 pl-3 pt-1">
-        <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3  ">
+        <div className="flex items-center justify-between  sticky top-0 bg-white py-3  ">
           <div className="flex items-center gap-4">
             <PanelLeft
               className="w-[24px] h-[24px] text-gray-700 active:text-gray-500 rounded-2xl"
@@ -125,39 +125,45 @@ const MyEmployees = () => {
           </div>
         </div>
 
-        <div className="mt-3">
-          <h1 className="text-xl font-bold">My Employees</h1>
-          <span className="text-gray-600 text-sm">
-            Here's a list of your Employees
-          </span>
+        <div>
+          <div>
+            <h1 className="text-[22px] h-[29px] w-[175px] font-bold ml-1">
+              My Employees
+            </h1>
+          </div>
+          <div className="mt-[6px]">
+            <span className="text-gray-600 text-[16px] ">
+              Here's a list of your Employees
+            </span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-3 mt-4 justify-between">
+        <div className="flex items-center gap-3 mt-[7px] justify-between">
           <div className="flex items-center flex-wrap  gap-4">
-            <div className="border border-gray-200 rounded px-4 py-1 flex items-center bg-white w-50">
+            <div className="border border-gray-200 rounded-[7px] w-[244px] px-4 py-1 flex items-center bg-white h-[30px]">
               <input
                 type="text"
                 placeholder="Filter Employees..."
-                className="outline-none text-sm text-gray-700 placeholder-gray-900 w-full"
+                className="outline-none text-[13px] font-medium text-[#313131] placeholder-gray-900 w-full"
               />
             </div>
-            <button className="flex items-center gap-2 border border-gray-200 rounded px-4 py-1 bg-white hover:bg-gray-50">
+            <button className="flex items-center gap-2 h-[30px]  border border-gray-200 rounded px-4 py-1 bg-white hover:bg-gray-50">
               <CirclePlus className="text-gray-500 h-4 w-4" />
-              <span className="text-sm font-medium">Status</span>
+              <span className="text-[13px] font-medium">Status</span>
             </button>
             <button className="flex items-center gap-2 border border-gray-200 rounded px-4 py-1 bg-white hover:bg-gray-50">
               <CirclePlus className="text-gray-500 h-4 w-4" />
-              <span className="text-sm font-medium">City</span>
+              <span className="text-[13px] font-medium">City</span>
             </button>
           </div>
 
-          <button className="flex items-center gap-2 h-[40px] w-[185px] border border-gray-200 rounded-lg px-3 py-2 bg-blue-500 text-white font-medium text-[13px]">
+          <button className="flex items-center gap-2 h-[40px] w-[185px] border border-gray-200 rounded-lg px-[18px] py-2 bg-[#2F67B1] text-white font-medium text-[13px]">
             <CirclePlus className="h-5 w-5" />
             <span className="hidden sm:inline">Add New Customer</span>
           </button>
         </div>
 
-        <div className="overflow-x-auto border border-gray-200 mt-3 rounded-xl">
+        <div className="overflow-x-auto border border-gray-200 mt-[25px] rounded-[10px]">
           <table className="w-full">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-200">
@@ -283,40 +289,42 @@ const MyEmployees = () => {
             </tbody>
           </table>
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 px-4 py-2">
-          <div className=" h-[59px] w-[153px] flex items-center gap-2 text-gray-600 text-sm">
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 px-4 ">
+          <div className=" h-[59px] w-[153px] flex items-center gap-2 text-gray-600 text-[13px] font-medium">
             <span>0 of 68 row(s) selected</span>
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-gray-600 font-medium">
-            <span>Rows per page</span>
-            <select
-              value={10}
-              className="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-            >
-              <option value={10}>10</option>
-              <option value={25}>25</option>
-              <option value={50}>50</option>
-            </select>
-          </div>
+          <div className="flex gap-8">
+            <div className="flex items-center gap-2 text-[13px] font-medium ">
+              <span>Rows per page</span>
+              <select
+                // value={rowsPerPage}
+                // onChange={(e) => setRowsPerPage(Number(e.target.value))}
+                className=" w-[65px] h-[33px] border border-[#F0F0F0] text-gray-700 rounded px-2 text-sm focus:outline-none font-weight:[400] focus:ring-2 focus:ring-blue-400"
+              >
+                <option value={10}>10</option>
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+              </select>
+            </div>
 
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-600 font-medium">
-              Page 1 of 7
-            </span>
-            <div className="flex items-center gap-1 ml-2 sm:ml-4 ">
-              <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
-                <ChevronsLeft className="w-4 h-4 text-gray-400" />
-              </button>
-              <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
-                <ChevronLeft className="w-4 h-4 text-gray-400" />
-              </button>
-              <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
-                <ChevronRight className="w-4 h-4 text-gray-600" />
-              </button>
-              <button className="p-1 hover:bg-gray-100 rounded border border-gray-300">
-                <ChevronsRight className="w-4 h-4 text-gray-600" />
-              </button>
+            <div className="flex items-center gap-2">
+              <span className="text-[13px] font-medium  ">Page 1 of 7</span>
+              <div className="flex items-center gap-1 ml-2 sm:ml-4 ">
+                <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[31px] px-[6px]">
+                  <ChevronsLeft className="w-4 h-4 text-gray-400" />
+                </button>
+                <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[31px] px-[6px]">
+                  <ChevronLeft className="w-4 h-4 text-gray-400" />
+                </button>
+                <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[31px] px-[6px]">
+                  <ChevronRight className="w-4 h-4 text-gray-600" />
+                </button>
+                <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[31px] px-[6px]">
+                  <ChevronsRight className="w-4 h-4 text-gray-600" />
+                </button>
+              </div>
             </div>
           </div>
         </div>

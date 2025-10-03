@@ -97,12 +97,12 @@ const CustomerLeads = () => {
   ];
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-white">
       <div className="pr-6 pl-3 pt-1">
-        <div className="flex items-center justify-between  sticky top-0 bg-gray-50 py-3  ">
+        <div className="flex items-center justify-between  sticky top-0  py-3  ">
           <div className="flex items-center gap-4">
             <PanelLeft
-              className="w-[18px] h-[18px] text-gray-700 active:text-gray-500 rounded-2xl"
+              className="w-[24px] h-[24px] text-gray-700 active:text-gray-500 rounded-2xl"
               onClick={onToggleSidebar}
             />
             <Link to="/my-data">
@@ -130,79 +130,85 @@ const CustomerLeads = () => {
 
         {/* this fixed height is the problem ..remove it and remove those mt-90 nd all then it will look good */}
         <div className="h-[175px]">
-          <div className=" items-center mt-4  sm:gap-3 sm:justify-between sm:flex">
-            <div className="flex items-center gap-3 grid-cols-1">
-              <div className="border border-gray-200 rounded px-4 py-1 flex items-center bg-white w-[244px] h-[30px]">
+          <div className=" items-center mt-4 sm:gap-3 lg:gap-0 sm:justify-between sm:flex">
+            <div className="flex items-center flex-wrap  gap-4">
+              <div className="border border-gray-200 rounded-[7px] w-[244px] px-4 py-1 flex items-center bg-white h-[30px]">
                 <input
                   type="text"
-                  placeholder="Filter Customer..."
-                  className="outline-none text-sm text-gray-700 placeholder-gray-600 font-medium w-full"
+                  placeholder="Filter Employees..."
+                  className="outline-none text-[13px] font-medium text-[#313131] placeholder-gray-900 w-full"
                 />
               </div>
-              <button className="flex items-center gap-2 border h-[30px] border-dotted  border-gray-300 rounded-xl px-4 py-1 bg-white hover:bg-gray-50">
-                <CirclePlus className="text-gray-500 h-[15px] w-[15px]" />
-                <span className="text-sm font-medium">Status</span>
+              <button className="flex items-center gap-2 h-[30px]  border border-gray-200 rounded px-4 py-1 bg-white hover:bg-gray-50">
+                <CirclePlus className="text-gray-500 h-4 w-4" />
+                <span className="text-[13px] font-medium">Status</span>
               </button>
-              <button className="flex items-center gap-2 border h-[30px] border-dotted  border-gray-300  rounded-xl px-4 pr-7 bg-white hover:bg-gray-50">
-                <CirclePlus className="text-gray-500 h-[15px] w-[15px]" />
-                <span className="text-sm font-medium">City</span>
+              <button className="flex items-center gap-2 border border-gray-200 rounded px-4 py-1 bg-white hover:bg-gray-50">
+                <CirclePlus className="text-gray-500 h-4 w-4" />
+                <span className="text-[13px] font-medium">City</span>
               </button>
             </div>
-            <button className="flex items-center gap-2 border border-gray-200 rounded-lg px-27 py-2  bg-blue-500 text-white font-medium text-[14px] mt-4 sm:mt-0 sm:px-4 ">
-              <CirclePlus className="text-white h-[15px] w-[15px]" />
-              Add New Customer
+            <button className="flex items-center gap-2 h-[40px] w-[185px] border border-gray-200 rounded-lg px-[18px] py-2 bg-[#2F67B1] text-white font-medium text-[13px]">
+              <CirclePlus className="h-5 w-5" />
+              <span className="hidden sm:inline">Add New Customer</span>
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-            <div className="bg-white border border-gray-200 rounded-lg p-4 text-center shadow-sm">
-              <span className="text-sm text-gray-600">Total Records</span>
-              <p className="text-2xl font-bold text-gray-900">1,200</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-6 gap-0">
+            <div class="bg-white border border-gray-200 w-full h-[106px] py-8 text-center flex flex-col justify-center">
+              <span class="text-sm text-gray-800">
+                Number of records stored in database
+              </span>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4 text-center shadow-sm">
-              <span className="text-sm text-gray-600">Assigned</span>
-              <p className="text-2xl font-bold text-gray-900">700</p>
+            <div class="bg-white border border-gray-200 w-full h-[106px] p-4 text-center flex flex-col justify-center">
+              <span class="text-sm text-gray-600">Total Records</span>
+              <p class="text-2xl font-bold text-gray-900 mt-1">1,200</p>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4 text-center shadow-sm">
-              <span className="text-sm text-gray-600">Pending</span>
-              <p className="text-2xl font-bold text-gray-900">300</p>
+            <div class="bg-white border border-gray-200 w-full h-[106px] p-4 text-center flex flex-col justify-center">
+              <span class="text-sm text-gray-600">Assigned</span>
+              <p class="text-2xl font-bold text-gray-900 mt-1">700</p>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4 text-center shadow-sm">
-              <span className="text-sm text-gray-600">Completed</span>
-              <p className="text-2xl font-bold text-gray-900">200</p>
+            <div class="bg-white border border-gray-200 w-full h-[106px] p-4 text-center flex flex-col justify-center">
+              <span class="text-sm text-gray-600">Pending</span>
+              <p class="text-2xl font-bold text-gray-900 mt-1">300</p>
+            </div>
+
+            <div class="bg-white border border-gray-200 w-full h-[106px] p-4 text-center flex flex-col justify-center">
+              <span class="text-sm text-gray-600">Completed</span>
+              <p class="text-2xl font-bold text-gray-900 mt-1">200</p>
             </div>
           </div>
         </div>
 
-        <div className="overflow-x-auto p-2 border border-gray-200  rounded-xl mt-90 sm:mt-30 md:mt-0 lg:mt-0 ">
+        <div className="overflow-x-auto p-2 border border-gray-200  rounded-[10px] mt-120 sm:mt-70 md:mt-30 lg:mt-5  ">
           <table className="w-full">
             <thead>
-              <tr className="bg-gray-100 border-b border-gray-200">
-                <th className="w-12 px-4 py-3 text-left">
+              <tr className="bg-gray-50 border-b border-gray-200">
+                <th className="w-12 px-4 py-3 text-left h-[16px]">
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 h-[15px] w-[14.3px] "
+                    className="rounded border-gray-300 w-[17px] h-[16px]"
                   />
                 </th>
-                <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] font-medium text-gray-700">
                   Name
                 </th>
-                <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] font-medium text-gray-700">
                   Email
                 </th>
-                <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] font-medium text-gray-700">
                   Phone
                 </th>
-                <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] font-medium text-gray-700">
                   Status
                 </th>
-                <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] font-medium text-gray-700">
                   City
                 </th>
-                <th className="px-4 py-3 text-left text-[16px] font-medium text-gray-700">
+                <th className="px-4 py-3 text-left text-[13px] font-medium text-gray-700">
                   Assigned To
                 </th>
                 <th></th>
@@ -217,21 +223,21 @@ const CustomerLeads = () => {
                   <td className="px-4 py-4">
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300 h-[15px] w-[14.3px]"
+                      className="rounded border-gray-300 w-[17px] h-[16px]"
                     />
                   </td>
-                  <td className="px-4 py-4 text-sm font-medium text-gray-900">
+                  <td className="px-4 py-4 text-[13px] font-medium text-gray-900">
                     {row.name}
                   </td>
-                  <td className="px-4 py-4 text-[16px] text-gray-700">
+                  <td className="px-4 py-4 text-[13px] text-gray-700">
                     {row.email}
                   </td>
-                  <td className="px-4 py-4 text-[16px] text-gray-700">
+                  <td className="px-4 py-4 text-[13px] text-gray-700">
                     {row.phone}
                   </td>
                   <td className="px-4 py-4">
                     <span
-                      className={`px-5  text-xs font-medium rounded-[6px] ${
+                      className={`px-3 py-[2px] text-[11px] font-medium rounded-[6px] ${
                         row.status === "Active"
                           ? "bg-green-100 text-green-800"
                           : "bg-red-300 text-red-900"
@@ -240,14 +246,14 @@ const CustomerLeads = () => {
                       {row.status}
                     </span>
                   </td>
-                  <td className="px-4 py-4 text-[16px] text-gray-700">
+                  <td className="px-4 py-4 text-[13px] text-gray-700">
                     {row.city}
                   </td>
-                  <td className="pr-2 text-[16px] text-gray-700">
+                  <td className="pr-2 text-[13px] text-gray-700">
                     <span
-                      className={`px-2 flex items-center  ${
+                      className={`px-2 flex items-center font-medium ${
                         row.assignedTo === "Assign review.."
-                          ? "border border-gray-300 rounded-[8px] w-[160px]  py-1 flex justify-start <Chevrondown />"
+                          ? "border border-gray-300 rounded-[8px] w-[160px] py-1 justify-start "
                           : ""
                       }`}
                     >
@@ -257,7 +263,7 @@ const CustomerLeads = () => {
                       )}
                     </span>
                   </td>
-                  <td className="pl-4 ">
+                  <td className="pl-4">
                     <EllipsisVertical className="h-4 w-4 text-gray-300 cursor-pointer" />
                   </td>
                 </tr>

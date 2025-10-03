@@ -14,12 +14,12 @@ const PaginationFooter = ({ rowsPerPage, setRowsPerPage }) => {
       </div>
 
       <div className="flex gap-8">
-        <div className="flex items-center gap-2 text-[13px] text-gray-600 font-medium ">
+        <div className="flex items-center gap-2 text-[13px] font-medium ">
           <span>Rows per page</span>
           <select
-            value={rowsPerPage}
-            onChange={(e) => setRowsPerPage(Number(e.target.value))}
-            className="w-[78px] h-[30px] border border-gray-300 rounded px-5 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            // value={rowsPerPage}
+            // onChange={(e) => setRowsPerPage(Number(e.target.value))}
+            className=" w-[65px] h-[33px] border border-[#F0F0F0] text-gray-700 rounded px-2 text-sm focus:outline-none font-weight:[400] focus:ring-2 focus:ring-blue-400"
           >
             <option value={10}>10</option>
             <option value={25}>25</option>
@@ -28,20 +28,18 @@ const PaginationFooter = ({ rowsPerPage, setRowsPerPage }) => {
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-[13px] font-medium text-gray-600 ">
-            Page 1 of 7
-          </span>
+          <span className="text-[13px] font-medium  ">Page 1 of 7</span>
           <div className="flex items-center gap-1 ml-2 sm:ml-4 ">
-            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[32px] px-[7px]">
+            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[31px] px-[6px]">
               <ChevronsLeft className="w-4 h-4 text-gray-400" />
             </button>
-            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[32px] px-[7px]">
+            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[31px] px-[6px]">
               <ChevronLeft className="w-4 h-4 text-gray-400" />
             </button>
-            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[32px] px-[7px]">
+            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[31px] px-[6px]">
               <ChevronRight className="w-4 h-4 text-gray-600" />
             </button>
-            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[32px] px-[7px]">
+            <button className="p-1 hover:bg-gray-100 rounded border border-gray-300 h-[30px] w-[31px] px-[6px]">
               <ChevronsRight className="w-4 h-4 text-gray-600" />
             </button>
           </div>

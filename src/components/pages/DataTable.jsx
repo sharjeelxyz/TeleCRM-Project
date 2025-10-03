@@ -10,6 +10,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+import Done from "@/assets/Done.png";
+import Progress from "@/assets/Progress.png";
 
 const DataTable = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -111,7 +113,7 @@ const DataTable = () => {
     if (status === "Done") {
       return (
         <div className="flex items-center rounded gap-2 bg-green-100 w-[57px] h-[22px] px-2">
-          <div className="w-[5px] h-[6px] bg-green-500 rounded-full"></div>
+          <img src={Done} alt="Done" className="w-[11px] h-[11px] " />
           <span className="w-[5px] h-[16px] text-[11px] text-gray-700 font-medium">
             Done
           </span>
@@ -120,7 +122,7 @@ const DataTable = () => {
     } else {
       return (
         <div className="flex items-center rounded gap-2 bg-green-100 h-[22px] w-[86px] px-2">
-          <div className="w-[5px] h-[6px] bg-orange-400 rounded-full"></div>
+          <img src={Progress} alt="progress" className="w-[11px] h-[11px] " />
           <span className="w-[56px] h-[16px] text-[11px] text-gray-700 font-medium">
             In Process
           </span>
@@ -131,7 +133,7 @@ const DataTable = () => {
 
   return (
     <div className="overflow-hidden">
-      <div className="overflow-x-auto bg-white border border-gray-200 rounded-lg">
+      <div className="overflow-x-auto bg-white border border-gray-200 rounded-[12px]">
         <table className="w-full">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
