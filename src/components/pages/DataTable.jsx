@@ -202,15 +202,20 @@ const DataTable = () => {
                   </span>
                 </td>
                 <td className="px-4 py-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[13px] text-gray-800 font-medium">
-                      {row.reviewer}
-                    </span>
+                  <div
+                    className={`flex items-center font-medium text-[13px] text-gray-800 ${
+                      row.reviewer === "Assign review..."
+                        ? "border border-gray-300 rounded-[5px] h-[20px] w-[122px] px-[5px]"
+                        : ""
+                    }`}
+                  >
+                    {row.reviewer}
                     {row.reviewer === "Assign review..." && (
-                      <ChevronDown className="w-4 h-4 text-gray-400" />
+                      <ChevronDown className="w-4 h-4 text-gray-400 ml-1" />
                     )}
                   </div>
                 </td>
+
                 <td className="px-4 py-4">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>

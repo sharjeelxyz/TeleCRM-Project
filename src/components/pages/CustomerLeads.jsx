@@ -251,15 +251,15 @@ const CustomerLeads = () => {
                   </td>
                   <td className="pr-2 text-[13px] text-gray-700">
                     <span
-                      className={`px-2 flex items-center font-medium ${
+                      className={`flex items-center font-medium ${
                         row.assignedTo === "Assign review.."
-                          ? "border border-gray-300 rounded-[8px] w-[160px] py-1 justify-start "
+                          ? "border border-gray-300 rounded-[5px] h-[20px] w-[114px] px-[5px] justify-start "
                           : ""
                       }`}
                     >
                       {row.assignedTo}
                       {row.assignedTo === "Assign review.." && (
-                        <ChevronDown className="ml-2 w-4 h-4 text-gray-500" />
+                        <ChevronDown className=" w-4 h-4 text-gray-500" />
                       )}
                     </span>
                   </td>
